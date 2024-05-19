@@ -21,16 +21,86 @@
         >
             <a-assets>
                 <a-asset-item
+                    id="ptera"
+                    src="models/ptera/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="rex1"
+                    src="models/rex1/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="rex2"
+                    src="models/rex2/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
                     id="tri"
                     src="models/tri/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tyra"
+                    src="models/tyra/scene.gltf"
                 ></a-asset-item>
             </a-assets>
 
             <a-marker
-                id="marker-AR"
+                id="marker1"
                 type="pattern"
                 preset="custom"
-                url="markers/ar.patt"
+                url="markers/marker1.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-ptera"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#ptera"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker2"
+                type="pattern"
+                preset="custom"
+                url="markers/marker2.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-rex1"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#rex1"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker3"
+                type="pattern"
+                preset="custom"
+                url="markers/marker3.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-rex2"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#rex2"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker4"
+                type="pattern"
+                preset="custom"
+                url="markers/marker4.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -40,6 +110,24 @@
                     scale="0.5 0.5 0.5"
                     animation-mixer="loop: repeat"
                     gltf-model="#tri"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker5"
+                type="pattern"
+                preset="custom"
+                url="markers/marker5.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-tyra"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#tyra"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
