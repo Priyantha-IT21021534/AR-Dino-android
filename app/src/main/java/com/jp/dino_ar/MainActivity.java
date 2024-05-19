@@ -23,7 +23,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
   private static final int PERMISSIONS_REQUEST_CODE = 100;
   private static final String[] PERMISSIONS = {
-      Manifest.permission.CAMERA
+      Manifest.permission.CAMERA,
+      Manifest.permission.INTERNET
   };
   private WebView webView;
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     webSettings.setPluginState(WebSettings.PluginState.ON);
     webSettings.setBuiltInZoomControls(true);
     webSettings.setAllowFileAccessFromFileURLs(true);
+    webSettings.setAllowFileAccess(true);
 
     webView.setWebChromeClient(new WebChromeClient() {
       @Override
