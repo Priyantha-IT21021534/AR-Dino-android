@@ -22,6 +22,8 @@ This Project was created for SLIIT-Y4-CTSE-Assignment_4
 - keep screen wake during demonstration
 
 <hr />
-The used assets are available here if you need to play around with them.
-Feel free to fork this and try changes on your own
-All you have to do is update the "app/src/main/assets/" dir with the changes
+
+### Hey!!
+- The used assets are available here if you need to play around with them.
+- Feel free to fork this and try changes on your own
+- All you have to do is update the "app/src/main/assets/" dir with the changes
