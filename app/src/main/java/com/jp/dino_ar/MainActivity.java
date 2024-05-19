@@ -1,8 +1,13 @@
 package com.jp.dino_ar;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.PermissionRequest;
@@ -23,8 +28,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
   private static final int PERMISSIONS_REQUEST_CODE = 100;
   private static final String[] PERMISSIONS = {
-      Manifest.permission.CAMERA,
-      Manifest.permission.INTERNET
+      Manifest.permission.ACCESS_NETWORK_STATE,
+      Manifest.permission.INTERNET,
+      Manifest.permission.CAMERA
   };
   private WebView webView;
 
@@ -67,10 +73,35 @@ public class MainActivity extends AppCompatActivity {
     webView.setWebViewClient(new WebViewClientHandler());
 
     if (checkPermissions()) {
-      loadWebView();
+      if (isInternetAvailable()) {
+        loadWebView();
+      } else {
+        showNoInternetMessage();
+      }
     } else {
       requestPermissions();
     }
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if (isInternetAvailable()) {
+      loadWebView();
+    } else {
+      showNoInternetMessage();
+    }
+  }
+
+  private void showNoInternetMessage() {
+    Toast.makeText(this, "Valid internet connection required to initialize the app", Toast.LENGTH_LONG).show();
+    startActivity(new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS));
+  }
+
+  private boolean isInternetAvailable() {
+    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+    return activeNetwork != null && activeNetwork.isConnected();
   }
 
   private boolean checkPermissions() {
@@ -95,7 +126,11 @@ public class MainActivity extends AppCompatActivity {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (requestCode == PERMISSIONS_REQUEST_CODE) {
       if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-        loadWebView();
+        if (isInternetAvailable()) {
+          loadWebView();
+        } else {
+          showNoInternetMessage();
+        }
       } else {
         Toast.makeText(this, "Permissions are required for the app to function", Toast.LENGTH_LONG).show();
       }
