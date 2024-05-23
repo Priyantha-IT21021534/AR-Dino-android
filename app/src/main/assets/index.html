@@ -71,12 +71,6 @@
                     id="tyra"
                     src="models/tyra/scene.gltf"
                 ></a-asset-item>
-        <!-------------------------------------------------->
-        <!-------------------------------------------------->
-<!--                <a-asset-item-->
-<!--                    id="tyra_walk"-->
-<!--                    src="models/tyra_walk/scene.gltf"-->
-<!--                ></a-asset-item>-->
             </a-assets>
 
             <a-marker
@@ -91,13 +85,15 @@
             >
                 <a-entity
                     id="model-ptera"
-                    scale="0.8 0.8 0.8"
+                    scale="1 1 1"
                     animation-mixer="loop: repeat"
                     gltf-model="#ptera"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
             </a-marker>
+
+            <!-- Waiting -->
             <a-marker
                 id="marker2"
                 type="pattern"
@@ -110,7 +106,7 @@
             >
                 <a-entity
                     id="model-rex1"
-                    scale="0.6 0.6 0.6"
+                    scale="0.85 0.85 0.85"
                     animation-mixer="loop: repeat"
                     gltf-model="#rex1"
                     class="clickable"
@@ -129,7 +125,7 @@
             >
                 <a-entity
                     id="model-rex2"
-                    scale="0.6 0.6 0.6"
+                    scale="0.85 0.85 0.85"
                     animation-mixer="loop: repeat"
                     gltf-model="#rex2"
                     class="clickable"
@@ -144,11 +140,10 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                smooth="true"
             >
                 <a-entity
                     id="model-tri"
-                    scale="0.2 0.2 0.2"
+                    scale="0.35 0.35 0.35"
                     animation-mixer="loop: repeat"
                     gltf-model="#tri"
                     class="clickable"
@@ -174,29 +169,6 @@
                     gesture-handler
                 ></a-entity>
             </a-marker>
-
-            <!------------------------------------------------>
-            <!------------------------------------------------>
-<!--            <a-marker-->
-<!--                id="marker_ar"-->
-<!--                type="pattern"-->
-<!--                preset="custom"-->
-<!--                url="markers/marker_ar.patt"-->
-<!--                raycaster="objects: .clickable"-->
-<!--                emitevents="true"-->
-<!--                cursor="fuse: false; rayOrigin: mouse;"-->
-<!--                smooth="true"-->
-<!--            >-->
-<!--                <a-entity-->
-<!--                    id="model-tyra_walk"-->
-<!--                    scale="0.01 0.01 0.01"-->
-<!--                    animation-mixer="loop: repeat"-->
-<!--                    gltf-model="#tyra_walk"-->
-<!--                    class="clickable"-->
-<!--                    gesture-handler-->
-<!--                ></a-entity>-->
-<!--            </a-marker>-->
-
             <a-entity camera></a-entity>
         </a-scene>
     </body>
